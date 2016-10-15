@@ -1,0 +1,21 @@
+{
+  "name": "test-repo",
+  "description": "<h1>Hi this is test repository</h1>",
+  "main": "index.js",
+  "authors": [
+    "Evgeniy <yavorskiy1991@inbox.ru>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/liksunovmaxim/bislite",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}

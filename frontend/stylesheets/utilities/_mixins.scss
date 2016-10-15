@@ -4,6 +4,10 @@
 @mixin anim-param($params...) {
   transition-property: $params;
 }
+@mixin size($size){
+  width: #{$size}px;
+  height: #{$size}px;
+}
 @mixin no-anim {
   transition: none;
 }

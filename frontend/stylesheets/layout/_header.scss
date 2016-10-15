@@ -1,0 +1,99 @@
+#header {
+  &.site-header {
+    background: $bgSection;
+    padding: 35px 0;
+    .container{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .site-navigation {
+      display: flex;
+      &__item{
+        margin: 0 5px;
+        &:hover{
+          & > a {
+            box-shadow: inset -150px 0 0 0 #fff;
+            &:before {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+        }
+      }
+      &__link {
+        color: $colorText;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: .8125em;
+        padding: 11px 10px;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        @include anim($param: box-shadow, $dur: .35s);
+        &:before{
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 5px;
+          background: $colorLink;
+          opacity: 0;
+          transform: translateX(-100%);
+          @include anim($dur: .3s);
+          @include anim-param(transform, opacity);
+        }
+      }
+      .has-children{
+        position: relative;
+        &:hover{
+          .caret{
+            &:after{
+              transform: rotate(45deg);
+            }
+            &:before{
+              transform: rotate(-45deg);
+            }
+          }
+        }
+        & > a{
+          padding: 11px 20px 11px 10px;
+        }
+      }
+      .submenu{
+        background: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 150px;
+        display: none;
+      }
+      .caret {
+        position: absolute;
+        right: 11px;
+        top: 50%;
+        width: 8px;
+        height: 7px;
+        transform: translateY(-50%);
+        z-index: 1;
+        &:after, &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 5px;
+          height: 2px;
+          background: $colorText;
+          transform: rotate(45deg);
+          @include anim($param: transform, $dur: .3s);
+        }
+        &:after{
+          transform: rotate(-45deg);
+          left: auto;
+          right: 0;
+        }
+      }
+    }
+  }
+}
