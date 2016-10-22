@@ -25,6 +25,7 @@
     "gulp-imagemin": "^3.0.3",
     "gulp-js-minify": "0.0.3",
     "gulp-main-bower-files": "^1.5.3",
+    "gulp-requirejs-optimize": "^1.2.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglifyjs": "^0.6.2",

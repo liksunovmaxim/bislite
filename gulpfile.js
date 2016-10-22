@@ -9,7 +9,7 @@ var gulp           = require('gulp'),                   // This is Gulp in proje
     autoprefixer   = require('gulp-autoprefixer'),      // adds vendor prefixes in css
     gulpFilter     = require('gulp-filter'),            // file filtration
     flatten        = require('gulp-flatten'),           // remove folders structure
-    uglify         = require('gulp-uglifyjs'),          // uglify js
+    requirejsOptimize = require('gulp-requirejs-optimize'),          // uglify js
     mainBowerFiles = require('gulp-main-bower-files');  // get main bower files
 
 gulp.task('browser-sync', function() {  // Task for Browser sync
@@ -66,15 +66,21 @@ gulp.task('image:build', function(){                    // Task to relocate imag
 gulp.task('javascripts:watch', ['javascripts:build'], function(){   // Task for watching new and deleted scripts, task javascripts:build runs before this task is running
     return watch('./frontend/javascripts/**/*.js', function () {    // Path to watching files
         gulp.src('./frontend/javascripts/**/*.js')                  // Path to bulild files
-            .pipe(uglify())                                         // Uglify and minimize scripts
+            // .pipe(uglify())                                         // Uglify and minimize scripts
             .pipe(gulp.dest('./public/js'));                        // destination for optimized scripts
     });
 });
 
 gulp.task('javascripts:build', function(){              // Task to relocate scripts from frontend folder to public folder
     gulp.src('./frontend/javascripts/**/*.js')          // Path to scripts
-        .pipe(uglify())                                 // Uglify and minimize scripts
+        // .pipe(uglify())                                 // Uglify and minimize scripts
         .pipe(gulp.dest('./public/js'));                // destination for optimized scripts
+});
+
+gulp.task('js:optimize', function () {
+    return gulp.src('./public/js/index.js')
+        .pipe(requirejsOptimize())
+        .pipe(gulp.dest('./public/js'));
 });
 
 gulp.task('main-bower-files', function() {                      // Task to put bower downloaded files from bower components
