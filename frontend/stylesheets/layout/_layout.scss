@@ -1,8 +1,6 @@
-#wrapper {
-  display: flex;
-  flex-direction: column;
-  .container {
-    max-width: $maxWidth;
-    margin: 0 auto;
+@media (min-width: 1200px) {
+  .container{
+    max-width: 1024px;
   }
 }
+

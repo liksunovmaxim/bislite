@@ -1,41 +1,12 @@
 requirejs.config({
-    baseUrl: './public/js'
+    baseUrl: './public/js',
+    shim : {
+        "bootstrap" : { "deps" :['jquery'] }
+    }
 });
 
-define(["jquery", "domReady", "slick"], function ($) {
+define(["jquery", "domReady", "bootstrap"], function ($) {
     "use strict";
-
-    var Page = {
-
-        init: function () {
-            this.navigation();
-        },
-        navigation: function () {
-            var navLink = $('.has-children');
-
-            navLink.on('mouseenter', function () {
-                $(this).find('.submenu').stop().slideDown('fast');
-            });
-            navLink.on('mouseleave', function () {
-                $(this).find('.submenu').stop().slideUp('fast');
-            });
-        }
-    };
-
-    var Homepage = {
-        init: function () {
-            this.carousel();
-        },
-        carousel: function () {
-            $('.main-banner').slick({
-                dots: true
-            });
-        }
-    };
-
-    Page.init();
-    Homepage.init();
-    
 
 });
 

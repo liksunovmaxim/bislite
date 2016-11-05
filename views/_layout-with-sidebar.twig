@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/style.css">
+    {% block styles %}
+
+    {% endblock %}
+    <script src="./js/require.js"
+            data-main="{% block jsEntryPoint %}./js/index{% endblock %}"
+    ></script>
+    <title>{% block title %}Document{% endblock %}</title>
+</head>
+<body>
+<div id="wrapper">
+    <section id="main">
+        {% block content %}
+
+        {% endblock %}
+    </section>
+    <aside>
+        {% block sidebar %}
+
+        {% endblock %}
+    </aside>
+</div>
+</body>
+</html>

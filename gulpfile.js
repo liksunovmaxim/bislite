@@ -10,16 +10,22 @@ var gulp           = require('gulp'),                   // This is Gulp in proje
     gulpFilter     = require('gulp-filter'),            // file filtration
     flatten        = require('gulp-flatten'),           // remove folders structure
     requirejsOptimize = require('gulp-requirejs-optimize'),          // uglify js
-    mainBowerFiles = require('gulp-main-bower-files');  // get main bower files
+    mainBowerFiles = require('gulp-main-bower-files'),  // get main bower files
+    twig            = require('gulp-twig'),
+    data            = require('gulp-data'),
+    path            = require('path'),
+    fs              = require('fs'),
+    _               = require('lodash');
 
 gulp.task('browser-sync', function() {  // Task for Browser sync
     browserSync.init({                  // initialization
         server: {                       // create server on port 3000
-            baseDir: "./"               // path to index.html
+            baseDir: "./public"               // path to index.html
         }
     });
     gulp.watch('./frontend/stylesheets/**/*.scss', ['sass']);           // sass watching
-    gulp.watch("./*.html").on('change', browserSync.reload);            // html watching and reload browser
+    gulp.watch('./views/**/*.twig', ['twig']);
+    gulp.watch("./public/*.html").on('change', browserSync.reload);            // html watching and reload browser
     gulp.watch("./public/**/*.js").on('change', browserSync.reload);    // js watching and reload browser
 });
 
@@ -30,9 +36,9 @@ gulp.task('sass', function () {                         // Task for compile sass
         .pipe(autoprefixer({                            // adds vendor prefixes
             browsers: ['last 15 versions']
         }))
-        .pipe(browserSync.stream())                     // reload browser
         .pipe(sourcemaps.write())                       // write sourcemaps in browser
-        .pipe(gulp.dest('./public/css'));               // destination for compile files
+        .pipe(gulp.dest('./public/css'))               // destination for compile files
+        .pipe(browserSync.stream());                     // reload browser
 });
 
 gulp.task('image:watch', ['image:build'], function(){   // Task for watching new and deleted images, task image:build runs before this task is running
@@ -92,9 +98,28 @@ gulp.task('main-bower-files', function() {                      // Task to put b
         .pipe(gulp.dest('./public/js'));                        // Destination where to put main bower files
 });
 
+var getJsonData = function(file) {
+    var fileName = path.basename(file.path, '.twig');
+    var fixturesForFile = JSON.parse(fs.readFileSync('./fixtures/' + fileName + '.json'));
+    var general = JSON.parse(fs.readFileSync('./fixtures/_.json'));
+    var result = _.extend(general, fixturesForFile);
+    return result;
+};
+
+gulp.task('twig', function() {
+
+    var twig = require('gulp-twig');
+    return gulp.src('./views/pages/*.twig')
+        .pipe(data(getJsonData))
+        .pipe(twig())
+        .pipe(gulp.dest('./public'));
+
+});
+
 gulp.task('default', [      // This is default task. You car run it wrining 'gulp' in command prompt
     'browser-sync',         //
     'sass',                 //
+    'twig',
     'image:watch',          //  Tasks after runnung default task
     'main-bower-files',     //
     'javascripts:watch'     //
