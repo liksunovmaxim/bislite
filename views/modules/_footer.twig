@@ -1,7 +1,20 @@
-<footer id="site-footer">
-    {{ footer.shmogo }}
-    {% for shmi in footer.shmav %}
-        <div>{{ shmi.link }}{{ shmi.name }}</div>
-    {% endfor %}
-</footer>
+<div class="footer container">
+    <div class="copyrights">
+        {{ footer.copyrights }}
+    </div>
+    <ul class="footer-links">
+        {% for link in footer.links %}
+            <li class="footer-links__item">
+                <a href="{{ link.url }}">{{ link.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <ul class="footer-social">
+        {% for social in footer.social %}
+            <li class="footer-social__item">
+                <a href="{{ social.url }}">{{ social.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 

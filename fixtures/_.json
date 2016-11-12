@@ -1,22 +1,27 @@
 {
-  "title": "twig test",
-  "includes": {
-    "header": {
-      "logo": "logo",
-      "nav": [
-        {"name": "Home", "link": "#"},
-        {"name": "Calculator", "link": "calculator.html"},
-        {"name": "About", "link": "#"},
-        {"name": "Contacts", "link": "#"}
+  title: "twig test",
+  includes: {
+    header: {
+      logo: "logo6737636",
+      poa: "sdsd",
+      nav: [
+        {name: "Home", link: "#"},
+        {name: "Calculator", link: "calculator.html"},
+        {name: "About", link: "#"},
+        {name: "Contacts", link: "#"}
       ]
     },
-    "shmooter" : {
-      "shmogo": "logo",
-      "shmav": [
-        {"name": "Home", "link": "#"},
-        {"name": "Calculator", "link": "calculator.html"},
-        {"name": "About", "link": "#"},
-        {"name": "Contacts", "link": "#"}
+    footer : {
+      copyrights: "&copy; Lombard Capital 2016",
+      links: [
+        {name: "Home", url: "#"},
+        {name: "Calculator", url: "#"},
+        {name: "About", url: "#"}
+      ],
+      social: [
+        {name: "facebook", url: "#"},
+        {name: "twitter", url: "#"},
+        {name: "ok", url: "#"}
       ]
     }
   }

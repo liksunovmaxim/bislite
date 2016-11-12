@@ -15,6 +15,7 @@ var gulp           = require('gulp'),                   // This is Gulp in proje
     data            = require('gulp-data'),
     path            = require('path'),
     fs              = require('fs'),
+    JSON5           = require('json5'),
     _               = require('lodash');
 
 gulp.task('browser-sync', function() {  // Task for Browser sync
@@ -25,6 +26,7 @@ gulp.task('browser-sync', function() {  // Task for Browser sync
     });
     gulp.watch('./frontend/stylesheets/**/*.scss', ['sass']);           // sass watching
     gulp.watch('./views/**/*.twig', ['twig']);
+    gulp.watch('./fixtures/**/*.json', ['twig']);
     gulp.watch("./public/*.html").on('change', browserSync.reload);            // html watching and reload browser
     gulp.watch("./public/**/*.js").on('change', browserSync.reload);    // js watching and reload browser
 });
@@ -100,8 +102,8 @@ gulp.task('main-bower-files', function() {                      // Task to put b
 
 var getJsonData = function(file) {
     var fileName = path.basename(file.path, '.twig');
-    var fixturesForFile = JSON.parse(fs.readFileSync('./fixtures/' + fileName + '.json'));
-    var general = JSON.parse(fs.readFileSync('./fixtures/_.json'));
+    var fixturesForFile = JSON5.parse(fs.readFileSync('./fixtures/' + fileName + '.json'));
+    var general = JSON5.parse(fs.readFileSync('./fixtures/_.json'));
     var result = _.extend(general, fixturesForFile);
     return result;
 };

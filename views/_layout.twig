@@ -6,6 +6,7 @@
     {% block styles %}
 
     {% endblock %}
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=cyrillic" rel="stylesheet">
     <script src="./js/require.js"
             data-main="{% block jsEntryPoint %}./js/index{% endblock %}"
     ></script>
@@ -13,17 +14,21 @@
 </head>
 <body>
     <div id="wrapper">
-        {% block header %}
-            {% include './modules/_header.twig' with {header: includes.header} %}
-        {% endblock %}
+        <header id="site-header">
+            {% block header %}
+                {% include './modules/_header.twig' with {header: includes.header} %}
+            {% endblock %}
+        </header>
         <section id="main">
             {% block content %}
 
             {% endblock %}
         </section>
-        {% block footer %}
-            {% include './modules/_footer.twig' with {footer: includes.shmooter} %}
-        {% endblock %}
+        <footer id="site-footer">
+            {% block footer %}
+                {% include './modules/_footer.twig' with {footer: includes.footer} %}
+            {% endblock %}
+        </footer>
     </div>
 </body>
 </html>

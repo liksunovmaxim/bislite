@@ -1,4 +1,20 @@
-#map{
-  width:500px;
-  height: 500px;
+.footer {
+  background: $bgGrey;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-links {
+  display: flex;
+  &__item {
+    margin: 0 5px;
+  }
+}
+
+.footer-social {
+  display: flex;
+  &__item {
+    margin: 0 5px;
+  }
 }
