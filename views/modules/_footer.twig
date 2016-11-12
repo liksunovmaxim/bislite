@@ -12,7 +12,9 @@
     <ul class="footer-social">
         {% for social in footer.social %}
             <li class="footer-social__item">
-                <a href="{{ social.url }}">{{ social.name }}</a>
+                <a class="icon-{{ social.name }}" href="{{ social.url }}">
+                    <span>{{ social.name }}</span>
+                </a>
             </li>
         {% endfor %}
     </ul>

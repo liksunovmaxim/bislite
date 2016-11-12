@@ -20,7 +20,7 @@
       ],
       social: [
         {name: "facebook", url: "#"},
-        {name: "twitter", url: "#"},
+        {name: "vkontakte", url: "#"},
         {name: "ok", url: "#"}
       ]
     }
