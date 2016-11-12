@@ -1,13 +1,10 @@
 requirejs.config({
-    baseUrl: './public/js',
-    shim : {
-        "bootstrap" : { "deps" :['jquery'] }
-    }
+    baseUrl: './js',
 });
 
-define(["jquery", "domReady", "bootstrap"], function ($) {
+define(["jquery", "domReady", "slick"], function ($) {
     "use strict";
-
+    $('.main-banner').slick();
 });
 
 

@@ -7,8 +7,11 @@
     margin: 0 auto;
   }
 }
-
+#site-header{
+  background: $colorLink;
+}
 #main {
   flex-grow: 1;
+  position: relative;
 }
 

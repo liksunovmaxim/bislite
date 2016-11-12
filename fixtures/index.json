@@ -1,8 +1,35 @@
 {
   title: "Homepage",
-  includes: {
+  slider: [
+    {
+      image: 'banner.jpg',
+      url: '#'
+    },
+    {
+      image: 'banner.jpg',
+      url: '#'
+    },
+    {
+      image: 'banner.jpg',
+      url: '#'
+    }
+  ],
+  include: {
     footer: {
-      title: 'homepage footer'
+      title: 'homepage footer',
+      news: [
+        {
+          image: '',
+          text: 'asjcgvasjc  as jasgdf',
+          date: '11.08.89'
+        },
+        {
+          image: '',
+          text: 'asdgasdg asdg asdg ',
+          date: '12.04.61'
+        }
+      ],
+      formTitle: 'aschavscj'
     }
   }
 }

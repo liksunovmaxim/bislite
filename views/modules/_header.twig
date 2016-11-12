@@ -1,3 +1,21 @@
-<header id="site-header">
-    {{ header.logo }}
-</header>
+<div class="container header">
+    <a class="header__logo" href="{{ header.logoUrl }}">
+        <img src="./images/{{ header.logoImage }}" alt="">
+    </a>
+    <ul class="header-nav">
+        {% for nav in header.nav %}
+            <li class="header-nav__item{% if nav.submenu %} has-children{% endif %}">
+                <a class="header-nav__link" href="{{ nav.link }}">{{ nav.name }}</a>
+                {% if nav.submenu %}
+                    <ul class="submenu">
+                        {% for item in nav.submenu %}
+                            <li class="submenu__item">
+                                <a class="submenu__link" href="{{ item.link }}">{{ item.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>

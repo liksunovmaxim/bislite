@@ -2,13 +2,36 @@
   title: "twig test",
   includes: {
     header: {
-      logo: "logo6737636",
-      poa: "sdsd",
+      logoUrl: "#",
+      logoImage: 'logo.png',
       nav: [
-        {name: "Home", link: "#"},
-        {name: "Calculator", link: "calculator.html"},
-        {name: "About", link: "#"},
-        {name: "Contacts", link: "#"}
+        {
+          name: "Кредиты",
+          link: "#"
+        },
+        {
+          name: "Отделения",
+          link: "#"
+        },
+        {
+          name: "Акции",
+          link: "#"
+        },
+        {
+          name: "Программа лояльности",
+          link: "#"
+        },
+        {
+          name: "О компании",
+          link: "#",
+          submenu: [
+            {name: 'О нас', link: '#'},
+            {name: 'Контакты', link: '#'},
+            {name: 'Новости', link: '#'},
+            {name: 'Вопросы', link: '#'},
+            {name: 'Реквизиты', link: '#'}
+          ]
+        }
       ]
     },
     footer : {

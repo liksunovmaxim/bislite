@@ -2,12 +2,17 @@
 
 {% block title %}{{ title }}{% endblock %}
 
-{% block jsEntryPoint %}./js/map{% endblock %}
-
 {% block content %}
-    asfasf
+    <div class="main-banner">
+        {% for slide in slider %}
+            <div class="main-banner__slide"
+            style="background-image: url(./images/{{ slide.image }});">
+                <a href="{{ slide.url }}"></a>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
 
 {% block footer %}
-    {% include '../modules/_footer-homepage.twig' with {footer: includes.footer} %}
+    {% include '../modules/_footer-homepage.twig' with {footer: include.footer} %}
 {% endblock %}
