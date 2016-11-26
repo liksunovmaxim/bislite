@@ -1,3 +1,27 @@
+
 <div class="container footer-homepage">
-    {{ footer.title }}
+    <div class="input-holder">
+        <select id="select-probe" style="width: 100%">
+            {% for option in footer.options %}
+                <option value="{{ option.text }}">{{ option.text }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="title" style="display: none;">{{ footer.title }}</div>
+    <ol>
+        {% for item in footer.list %}
+            <li>
+                {% if item.text %}
+                    <p>{{ item.text }}</p>
+                {% endif %}
+                {% if item.sublist %}
+                    <ul>
+                        {% for item in item.sublist %}
+                            <li>{{ item.text }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ol>
 </div>

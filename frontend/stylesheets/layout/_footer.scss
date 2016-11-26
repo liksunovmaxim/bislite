@@ -3,6 +3,44 @@
   padding: 0 40px;
   display: flex;
   justify-content: space-between;
+  &-homepage{
+    padding: 350px 0;
+    .input-holder{
+      position: relative;
+      display: inline-block;
+      width: 350px;
+    }
+    input{
+      border: 0;
+      border-bottom: 1px solid #000;
+      &:focus,
+      &:valid{
+        outline: 0;
+        & ~ label{
+          transform: scale(.8) translateY(-100%);
+        }
+        & ~ .caret{
+          width: 100%;
+        }
+      }
+      & ~ label{
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-origin: 0 0;
+        cursor: text;
+        @include anim($param: transform);
+      }
+      & ~ .caret{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width:0;
+        height:2px;
+        @include anim($param: width);
+      }
+    }
+  }
 }
 
 .footer-links {

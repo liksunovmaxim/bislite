@@ -4,6 +4,9 @@
   &__logo{
     margin:0 40px 0 0;
   }
+  &__right{
+    width:250px;
+  }
 }
 .header-nav{
   display: flex;
@@ -17,5 +20,18 @@
   &__link{
     color: #fff;
     display: block;
+  }
+}
+.has-children{
+  position: relative;
+  .submenu{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background: darken($colorLink, 5%);
+    width: 200px;
+    padding: 0 20px;
+    z-index: 5;
   }
 }

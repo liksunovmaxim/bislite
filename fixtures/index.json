@@ -17,6 +17,23 @@
   include: {
     footer: {
       title: 'homepage footer',
+      textPlaceholder: 'Ваш E-mail',
+      options: [
+        {text: '385'},
+        {text: '385'},
+        {text: '685'},
+        {text: '785'},
+        {text: '856'},
+        {text: '985'},
+        {text: '185'},
+        {text: '285'},
+      ],
+      passwPlaceholder: 'Ваш пароль',
+      list: [
+        {text: 'asfasfasfsafas'},
+        {text: 'asfasfasfsafas'},
+        {sublist: [{text: 'asdasdsad'},{text: 'asdasdsad'},{text: 'asdasdsad'}]},
+      ],
       news: [
         {
           image: '',
